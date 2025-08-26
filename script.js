@@ -26,21 +26,6 @@ const showMenu = (toggleId, navId) => {
 showMenu("nav-toggle", "nav-menu");
 
 // ===============================
-// Toggling Active Link
-// ===============================
-const navLink = document.querySelectorAll(".nav-link");
-
-function linkAction() {
-    navLink.forEach((n) => n.classList.remove("active"));
-    this.classList.add("active");
-
-    const navMenu = document.getElementById("nav-menu");
-    navMenu.classList.remove("show");
-}
-
-navLink.forEach((n) => n.addEventListener("click", linkAction));
-
-// ===============================
 // Scroll Reveal Animations
 // ===============================
 const sr = ScrollReveal({
@@ -320,26 +305,49 @@ function setupContactForm() {
 function setupScrollSpy() {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
+    const navMenu = document.getElementById("nav-menu"); // Agrega esta línea
 
-    window.addEventListener("scroll", () => {
-        let currentSection = "";
+    // Función para manejar el estado activo en los enlaces de navegación
+    const navHighlighter = () => {
+        let scrollY = window.pageYOffset;
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                currentSection = section.getAttribute("id");
+        sections.forEach((current) => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 50;
+            const sectionId = current.getAttribute("id");
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.add("active");
+            } else {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.remove("active");
             }
         });
+    };
 
-        navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").includes(currentSection)) {
-                link.classList.add("active");
+    window.addEventListener("scroll", navHighlighter);
+
+    // Agrega un evento a los enlaces para cerrar el menú en móviles
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (navMenu) {
+                navMenu.classList.remove("show");
             }
         });
     });
 }
+// ===============================
+// Botón 'Volver al Inicio'
+// ===============================
+function setupScrollToTop() {
+    const scrollUp = document.querySelector(".scroll-up");
+    if (scrollUp) {
+        window.addEventListener("scroll", () => {
+            // Muestra el botón cuando el desplazamiento vertical es mayor a 560px
+            this.scrollY >= 560 ? scrollUp.classList.add("show-scroll") : scrollUp.classList.remove("show-scroll");
+        });
+    }
+}
+
 // ===============================
 // Inicializar todo al cargar
 // ===============================
@@ -349,4 +357,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setupDarkMode();
     setupContactForm();
     setupScrollSpy();
+    setupScrollToTop();
 });

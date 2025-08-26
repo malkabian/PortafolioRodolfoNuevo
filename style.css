@@ -1,5 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Definición de la fuente Poppins alojada localmente */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400; /* Asocia el archivo Regular.ttf al peso 400 */
+    font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* Asocia el archivo SemiBold.ttf al peso 600 */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Repite este bloque para cada peso y estilo de fuente que necesites (ej. bold, italic, etc.) */
 /* ===============================
 VARIABLES CSS
 ===============================*/
@@ -114,7 +130,6 @@ ul {
 
 a {
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 img {
@@ -124,8 +139,8 @@ img {
 }
 
 /* ===============================
-   CLASES CSS REUTILIZABLES
-   ===============================*/
+CLASES CSS REUTILIZABLES
+===============================*/
 .section-title {
     position: relative;
     font-size: var(--h2-font-size);
@@ -163,8 +178,8 @@ img {
 }
 
 /* ===============================
-   LAYOUT
-   ===============================*/
+LAYOUT
+===============================*/
 .l-header {
     width: 100%;
     position: fixed;
@@ -177,8 +192,8 @@ img {
 }
 
 /* ===============================
-   NAVEGACIÓN
-   ===============================*/
+NAVEGACIÓN
+===============================*/
 .nav {
     height: var(--header-height);
     display: flex;
@@ -236,8 +251,8 @@ img {
 }
 
 /* ===============================
-   SELECTOR DE IDIOMA
-   ===============================*/
+SELECTOR DE IDIOMA
+===============================*/
 .lang {
     text-align: center;
     padding: 1rem 0;
@@ -255,8 +270,8 @@ img {
 }
 
 /* ===============================
-   DARK MODE SWITCH
-   ===============================*/
+DARK MODE SWITCH
+===============================*/
 .switch {
     width: 60px;
     height: 30px;
@@ -300,8 +315,8 @@ img {
 }
 
 /* ===============================
-   PÁGINA PRINCIPAL
-   ===============================*/
+PÁGINA PRINCIPAL
+===============================*/
 .home {
     height: calc(100vh - 3rem);
     row-gap: 1rem;
@@ -350,8 +365,8 @@ img {
 }
 
 /* ===============================
-   SOBRE MÍ
-   ===============================*/
+SOBRE MÍ
+===============================*/
 
 .about-container {
     row-gap: 2rem;
@@ -365,8 +380,8 @@ img {
 }
 
 /* ===============================
-   HABILIDADES
-   ===============================*/
+HABILIDADES
+===============================*/
 
 .skills-container {
     row-gap: 2rem;
@@ -625,6 +640,36 @@ body.dark-mode .contact-input:focus {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+/* Botón 'Back to Top' */
+.scroll-up {
+    position: fixed;
+    right: 1.5rem;
+    bottom: -20%;
+    background-color: var(--first-color);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.3s, transform 0.3s;
+    z-index: var(--z-tooltip);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-up:hover {
+    transform: translateY(-5px);
+}
+
+.scroll-up-icon {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Mostrar el botón */
+.show-scroll {
+    bottom: 2rem;
 }
 
 
