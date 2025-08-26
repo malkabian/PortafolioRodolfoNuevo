@@ -167,6 +167,7 @@ img {
 .nav-link {
     position: relative;
     color: var(--nav-link-color);
+    transition: color 0.3s;
 }
 .nav-link:hover {
     position: relative;
@@ -195,6 +196,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 0.3s;
 }
 
 .active::after {
@@ -218,6 +220,8 @@ img {
 .lang-item {
     color: var(--text-color);
     padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .lang-item:hover {
@@ -284,6 +288,7 @@ img {
     font-size: var(--big-font-size);
     margin-bottom: var(--mb5);
     color: var(--text-color);
+    transition: color 0.3s;
 }
 .home-title-color {
     color: var(--first-color);
@@ -297,7 +302,7 @@ img {
     margin-bottom: var(--mb2);
     font-size: 1.5rem;
     color: var(--text-color);
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 .home-social-icon:hover {
@@ -330,6 +335,7 @@ img {
     text-align: center;
     margin-bottom: var(--mb2);
     color: var(--text-color);
+    transition: color 0.3s;
 }
 
 /* ===============================
@@ -343,10 +349,12 @@ img {
 .skills-subtitle {
     margin-bottom: var(--mb2);
     color: var(--text-color);
+    transition: color 0.3s;
 }
 .skills-text {
     margin-bottom: var(--mb4);
     color: var(--text-color);
+    transition: color 0.3s;
 }
 .skills-data {
     display: flex;
@@ -359,7 +367,7 @@ img {
     border-radius: 0.5rem;
     box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
     background-color: var(--body-bg-color);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 body.dark-mode .skills-data {
     box-shadow: 0 4px 25px rgba(255, 255, 255, 0.15);
@@ -404,8 +412,8 @@ body.dark-mode .skills-data {
 }
 
 /* ===============================
-   PROYECTOS
-   ===============================*/
+PROYECTOS
+===============================*/
 
 .work {
     text-align: center;
@@ -439,8 +447,8 @@ body.dark-mode .work-img {
 }
 
 /* ===============================
-   MODAL DE PROYECTOS
-   ===============================*/
+MODAL DE PROYECTOS
+===============================*/
 
 .modal {
     display: none;
@@ -471,6 +479,7 @@ body.dark-mode .work-img {
     text-align: center;
     margin-top: 10px;
     font-size: 1rem;
+    transition: color 0.3s;
 }
 
 /* Estilo para el enlace dentro del modal */
@@ -499,8 +508,8 @@ body.dark-mode .work-img {
 }
 
 /* ===============================
-   CONTACTO
-   ===============================*/
+CONTACTO
+===============================*/
 .contact {
     text-align: center;
 }
@@ -565,9 +574,24 @@ body.dark-mode .contact-input:focus {
     margin-left: auto;
 }
 
+.contact-message {
+  color: var(--first-color); /* Color primario para el mensaje de éxito */
+    font-weight: var(--font-semi);
+    text-align: center;
+    margin-top: -10px;
+    opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Transición para un efecto suave */
+}
+
+/* Clase para mostrar el mensaje */
+.contact-message.show {
+    opacity: 1;
+}
+
+
 /* ===============================
-   FOOTER
-   ===============================*/
+FOOTER
+===============================*/
 
 .footer {
     background-color: var(--second-color);
@@ -575,6 +599,7 @@ body.dark-mode .contact-input:focus {
     text-align: center;
     font-weight: var(--font-semi);
     padding: 2rem 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .footer-title {
@@ -590,6 +615,7 @@ body.dark-mode .contact-input:focus {
     font-size: 1.5rem;
     color: #ffffff;
     margin: 0 var(--mb2);
+    transition: color 0.3s;
 }
 
 .footer p {

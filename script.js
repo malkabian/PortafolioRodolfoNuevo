@@ -90,7 +90,7 @@ const translations = {
             "Apasionado por el diseño centrado en el usuario, creo experiencias significativas, combinando creatividad e investigación UX. Mi conocimiento en HTML, CSS y JavaScript me permite colaborar fluidamente con equipos de desarrollo para lograr soluciones intuitivas funcionales.",
         workTitle: "Proyectos",
         workTitle1: "Proyecto Delta",
-        workDesc1: "Diseño y prototipo de un sitio web para Delta Sports. Se usaron herramientas como Figma y Visual Studio Code.",
+        workDesc1: "Diseño y prototipo de un sitio web para la aerolínea Delta.",
         workLink1: "Ver demo",
         workTitle2: "User Persona",
         workDesc2: "Creación de un user persona basado en entrevistas y datos cualitativos para un proyecto de marketing.",
@@ -111,6 +111,7 @@ const translations = {
         formMessagePlaceholder: "Tu mensaje",
         formButtonSend: "Enviar",
         formSuccessMessage: "¡Mensaje enviado con éxito!",
+        formErrorMessage: "Por favor, completa todos los campos.",
     },
     en: {
         logo: "Rodolfo",
@@ -130,7 +131,7 @@ const translations = {
             "Passionate about user-centered design, I create meaningful experiences by combining creativity and UX research. My knowledge of HTML, CSS, and JavaScript allows me to collaborate seamlessly with development teams to achieve intuitive, functional solutions.",
         workTitle: "Projects",
         workTitle1: "Delta Project",
-        workDesc1: "Design and prototype of a website for Delta Sports. Tools like Figma and Visual Studio Code were used.",
+        workDesc1: "Design and prototype of a website for Delta Airlines.",
         workLink1: "View demo",
         workTitle2: "User Persona",
         workDesc2: "Creation of a user persona based on interviews and qualitative data for a marketing project.",
@@ -151,6 +152,7 @@ const translations = {
         formMessagePlaceholder: "Your message",
         formButtonSend: "Send",
         formSuccessMessage: "Message sent successfully!",
+        formErrorMessage: "Please fill out all fields.",
     },
 };
 
@@ -280,20 +282,59 @@ function setupDarkMode() {
 // ===============================
 function setupContactForm() {
     const form = document.querySelector(".contact-form");
+    const formMessage = document.getElementById("form-message");
+
     if (form) {
         form.addEventListener("submit", (event) => {
+            // Evita el envío del formulario por defecto para la validación
+            event.preventDefault(); 
+            
             const nameInput = form.querySelector('input[name="name"]');
             const emailInput = form.querySelector('input[name="email"]');
             const messageInput = form.querySelector('textarea[name="message"]');
 
-            if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-                alert("Por favor, completa todos los campos.");
-                event.preventDefault();
-                return;
-            }
+            // Oculta el mensaje anterior antes de validar
+            formMessage.classList.remove("show");
 
-            // Muestra mensaje de éxito después del envío
-            alert(translations[currentLang].formSuccessMessage);
+            if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+                // Muestra el mensaje de error si algún campo está vacío
+                formMessage.textContent = translations[currentLang].formErrorMessage;
+                formMessage.classList.add("show");
+            } else {
+                // Muestra el mensaje de éxito y limpia el formulario
+                formMessage.textContent = translations[currentLang].formSuccessMessage;
+                formMessage.classList.add("show");
+                form.reset();
+
+                // Opcional: Si quieres que el mensaje de éxito desaparezca después de unos segundos
+                setTimeout(() => {
+                    formMessage.classList.remove("show");
+                }, 3000); // 3 segundos
+            }
+        });
+    }
+}
+
+// ===============================
+// Scroll Spy para la navegación
+// ===============================
+function setupScrollSpy() {
+    const sections = document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", navHighlighter);
+
+    function navHighlighter() {
+        let scrollY = window.pageYOffset;
+
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 50;
+            const sectionId = current.getAttribute("id");
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.add("active");
+            } else {
+                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.remove("active");
+            }
         });
     }
 }
@@ -306,4 +347,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setupModal();
     setupDarkMode();
     setupContactForm();
+    setupScrollSpy();
 });
