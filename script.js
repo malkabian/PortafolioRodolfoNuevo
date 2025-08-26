@@ -66,7 +66,7 @@ sr.reveal(".skills-img", { delay: 400 });
 
 sr.reveal(".work-img", { interval: 200 });
 sr.reveal(".work-info", { interval: 200 });
-sr.reveal(".contact-input", { interval: 200 });
+
 
 // ===============================
 // Diccionario de traducciones
@@ -286,59 +286,60 @@ function setupContactForm() {
 
     if (form) {
         form.addEventListener("submit", (event) => {
-            // Evita el envío del formulario por defecto para la validación
-            event.preventDefault(); 
-            
             const nameInput = form.querySelector('input[name="name"]');
             const emailInput = form.querySelector('input[name="email"]');
             const messageInput = form.querySelector('textarea[name="message"]');
 
-            // Oculta el mensaje anterior antes de validar
             formMessage.classList.remove("show");
 
+            // Valida si los campos están vacíos
             if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-                // Muestra el mensaje de error si algún campo está vacío
+                event.preventDefault(); // Detiene el envío del formulario si falla
                 formMessage.textContent = translations[currentLang].formErrorMessage;
                 formMessage.classList.add("show");
             } else {
-                // Muestra el mensaje de éxito y limpia el formulario
+                // Si la validación pasa, el formulario se enviará
                 formMessage.textContent = translations[currentLang].formSuccessMessage;
                 formMessage.classList.add("show");
-                form.reset();
-
-                // Opcional: Si quieres que el mensaje de éxito desaparezca después de unos segundos
+                // La página se recargará después del envío, gracias al atributo _next de formsubmit.co
+                // Puedes eliminar la siguiente línea, ya que el formulario se enviará
+                // form.reset(); 
+                
+                // Si quieres que el mensaje de éxito se muestre un momento antes de la recarga:
                 setTimeout(() => {
-                    formMessage.classList.remove("show");
-                }, 3000); // 3 segundos
+                    form.submit();
+                }, 100); 
+                event.preventDefault(); // Previene el envío inmediato para dar tiempo a la función setTimeout
             }
         });
     }
 }
-
 // ===============================
 // Scroll Spy para la navegación
 // ===============================
 function setupScrollSpy() {
     const sections = document.querySelectorAll("section[id]");
-    window.addEventListener("scroll", navHighlighter);
+    const navLinks = document.querySelectorAll(".nav-link");
 
-    function navHighlighter() {
-        let scrollY = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+        let currentSection = "";
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 50;
-            const sectionId = current.getAttribute("id");
-
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.add("active");
-            } else {
-                document.querySelector(`.nav-menu a[href*=${sectionId}]`).classList.remove("active");
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                currentSection = section.getAttribute("id");
             }
         });
-    }
-}
 
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(currentSection)) {
+                link.classList.add("active");
+            }
+        });
+    });
+}
 // ===============================
 // Inicializar todo al cargar
 // ===============================

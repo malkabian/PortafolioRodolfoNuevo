@@ -314,54 +314,56 @@
             </div>
             <br />
             <div class="contact-container bd-grid">
-            <form
-                action="https://formsubmit.co/rodolfodelgadosantiag@gmail.com"
-                method="POST"
-                class="contact-form"
-                aria-label="Formulario de contacto"
-            >
-                <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                class="contact-input"
-                required
-                autocomplete="name"
-                pattern="[A-Za-z\s]+"
-                title="Solo se permiten letras y espacios"
-                aria-label="Tu nombre"
-                />
-                <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                class="contact-input"
-                required
-                autocomplete="email"
-                aria-label="Tu dirección de correo electrónico"
-                />
-                <textarea
-                name="message"
-                rows="10"
-                placeholder="Your message"
-                class="contact-input"
-                required
-                aria-label="Tu mensaje"
-                ></textarea>
-
-                <input type="hidden" name="_captcha" value="false" />
-                <input
-                type="hidden"
-                name="_next"
-                value="https://portafolio-rodolfo-nuevo.vercel.app/"
-                />
-                <input
-                type="submit"
-                value="Send"
-                class="contact-button button"
-                />
-                <span id="form-message" class="contact-message"></span>
-            </form>
+                <form
+                    action="https://formsubmit.co/rodolfodelgadosantiag@gmail.com"
+                    method="POST"
+                    class="contact-form"
+                    >
+                    <label for="name" class="visually-hidden">Tu nombre</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Name"
+                        class="contact-input"
+                        required
+                        autocomplete="name"
+                        pattern="[A-Za-z\s]+"
+                        title="Solo se permiten letras y espacios"
+                        />
+                        <label for="email" class="visually-hidden">Tu correo electrónico</label>
+                        <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        class="contact-input"
+                        required
+                        autocomplete="email"
+                        />
+                        <label for="message" class="visually-hidden">Tu mensaje</label>
+                        <textarea
+                        id="message"
+                        name="message"
+                        rows="10"
+                        placeholder="Your message"
+                        class="contact-input"
+                        required
+                        ></textarea>
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input
+                        type="hidden"
+                        name="_next"
+                        value="https://portafolio-rodolfo-nuevo.vercel.app/"
+                        />
+                        <input
+                        type="submit"
+                        value="Send"
+                        class="contact-button button"
+                        data-lang="formButtonSend"
+                        />
+                    <span id="form-message" class="contact-message"></span>
+                </form>   
             </div>
         </section>
 
@@ -396,18 +398,18 @@
             class="footer-social"
             role="group"
             aria-label="Enlaces a redes sociales en el pie de página"
-        >
+            >
             <a
-            href="https://www.linkedin.com/in/rodolfo-delgado-592a22266/"
-            class="footer-icon"
-            aria-label="Enlace a mi perfil de LinkedIn"
-            ><i class="bx bxl-linkedin"></i
+                href="https://www.linkedin.com/in/rodolfo-delgado-592a22266/"
+                class="footer-icon"
+                aria-label="Enlace a mi perfil de LinkedIn"
+                ><i class="bx bxl-linkedin"></i
             ></a>
             <a
-            href="https://www.instagram.com/rodolfodelgados/"
-            class="footer-icon"
-            aria-label="Enlace a mi perfil de Instagram"
-            ><i class="bx bxl-instagram"></i
+                href="https://www.instagram.com/rodolfodelgados/"
+                class="footer-icon"
+                aria-label="Enlace a mi perfil de Instagram"
+                ><i class="bx bxl-instagram"></i
             ></a>
         </div>
 
