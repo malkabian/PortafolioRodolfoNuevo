@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Rodolfo</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="/boxicons-2.1.4/css/boxicons.min.css"/>
+    </head>
+    <body>
+        <header class="l-header">
+        <nav class="nav bd-grid" role="navigation">
+            <div>
+            <a href="#" class="nav-logo" data-lang="logo">Rodolfo</a>
+            </div>
+
+            <div class="lang" role="group" aria-label="Selector de idioma">
+            <a 
+                href="" 
+                class="lang-item" 
+                onclick="setLanguage('es'); return false;"
+                aria-label="Seleccionar idioma español"
+            >Spa</a>
+            <a 
+                href="#" 
+                class="lang-item" 
+                onclick="setLanguage('en'); return false;"
+                aria-label="Select English language"
+            >Eng</a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list" role="list">
+                <li class="nav-item" role="listitem">
+                <a href="#home" class="nav-link active" data-lang="menuHome">Inicio</a>
+                </li>
+                <li class="nav-item" role="listitem">
+                <a href="#about" class="nav-link" data-lang="menuAbout">Sobre mí</a>
+                </li>
+                <li class="nav-item" role="listitem">
+                <a href="#skills" class="nav-link" data-lang="menuSkills">Habilidades</a>
+                </li>
+                <li class="nav-item" role="listitem">
+                <a href="#work" class="nav-link" data-lang="menuWork">Proyectos</a>
+                </li>
+                <li class="nav-item" role="listitem">
+                <a href="#contact" class="nav-link" data-lang="menuContact">Contacto</a>
+                </li>
+                <li class="nav-item switch" role="listitem" aria-label="Cambiar a modo oscuro o claro">
+                <i class="bx bx-sun"></i>
+                <i class="bx bx-moon"></i>
+                </li>
+            </ul>
+            </div>
+
+            <button 
+            class="nav-toggle" 
+            id="nav-toggle" 
+            aria-label="Mostrar menú de navegación" 
+            aria-controls="nav-menu" 
+            aria-expanded="false"
+            >
+            <i class="bx bx-menu"></i>
+            </button>
+        </nav>
+        </header>
+
+        <main class="l-main">
+        <section class="home bd-grid" id="home">
+            <div class="home-data">
+            <h1 class="home-title" data-lang="homeTitle">
+                Hola, <br />
+                Yo soy <span class="home-title-color">Rodolfo</span>
+                Diseñador Ux Ui
+            </h1>
+            <a href="#contact" class="button" data-lang="buttonContact">Contacto</a>
+            </div>
+
+            <div class="home-social" role="group" aria-label="Enlaces a redes sociales">
+            <a
+                href="https://www.linkedin.com/in/rodolfo-delgado-592a22266/"
+                class="home-social-icon"
+                aria-label="Enlace a mi perfil de LinkedIn"
+            ><i class="bx bxl-linkedin"></i></a>
+            <a
+                href="https://www.instagram.com/rodolfodelgados/"
+                class="home-social-icon"
+                aria-label="Enlace a mi perfil de Instagram"
+            ><i class="bx bxl-instagram"></i></a>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <h2 class="section-title" data-lang="menuAbout">Sobre mí</h2>
+            <div class="bd-grid">
+            <h3 class="about-subtitle" data-lang="aboutSubtitle">Yo soy Rodolfo</h3>
+            <p class="about-text" data-lang="aboutText">
+                Diseñador enfocado en crear experiencias cercanas a los usuarios
+                ademas de interfaces intuitivas, basadas en el comportamiento del
+                usuario, con el objetivo de mejorar constantemente la experiencia
+                digital.
+            </p>
+            </div>
+        </section>
+
+        <section class="skills section" id="skills">
+            <h2 class="section-title" data-lang="menuSkills">Habilidades</h2>
+            <div class="skills-container bd-grid">
+            <div>
+                <h3 class="skills-subtitle" data-lang="skillsSubtitle">Habilidades Profesionales</h3>
+                <p class="skills-text" data-lang="skillsText">
+                Apasionado por el diseño centrado en el usuario, 
+                creo experiencias significativas, combinando creatividad
+                e investigación UX. Mi conocimiento en HTML, CSS y 
+                JavaScript me permite colaborar fluidamente con equipos
+                de desarrollo para lograr soluciones intuitivas 
+                funcionales.
+                </p>
+
+                <div class="skills-data">
+                <div class="skills-names">
+                    <i class="bx bxs-paint skills-icon"></i>
+                    <span class="skills-name">UX/UI</span>
+                </div>
+                <div>
+                    <span class="skills-percentage">95%</span>
+                </div>
+                <div class="skills-bar skills-ux"></div>
+                </div>
+
+                <div class="skills-data">
+                <div class="skills-names">
+                    <i class="bx bxl-html5 skills-icon"></i>
+                    <span class="skills-name">HTML5</span>
+                </div>
+                <div>
+                    <span class="skills-percentage">95%</span>
+                </div>
+                <div class="skills-bar skills-html"></div>
+                </div>
+
+                <div class="skills-data">
+                <div class="skills-names">
+                    <i class="bx bxl-css3 skills-icon"></i>
+                    <span class="skills-name">CSS3</span>
+                </div>
+                <div>
+                    <span class="skills-percentage">85%</span>
+                </div>
+                <div class="skills-bar skills-css"></div>
+                </div>
+
+                <div class="skills-data">
+                <div class="skills-names">
+                    <i class="bx bxl-javascript skills-icon"></i>
+                    <span class="skills-name">JAVASCRIPT</span>
+                </div>
+                <div>
+                    <span class="skills-percentage">65%</span>
+                </div>
+                <div class="skills-bar skills-js"></div>
+                </div>
+            </div>
+            <div>
+                <img
+                src="/assets/work3.webp"
+                alt="Mesa de trabajo con herramientas de diseño"
+                class="skills-img"
+                />
+            </div>
+            </div>
+        </section>
+
+        <section class="work section" id="work">
+            <h2 class="section-title" data-lang="workTitle">Proyectos</h2>
+            <div class="work-container bd-grid">
+            <div class="work-img">
+                <img 
+                src="/assets/delta1.webp" 
+                alt="Maqueta de página web para Delta Airlines" 
+                />
+            </div>
+
+            <div class="work-img">
+                <img
+                src="/assets/Proyecto-nuevo.webp"
+                alt="Diagrama de persona de usuario para un proyecto"
+                />
+            </div>
+
+            <div class="work-img">
+                <img
+                src="/assets/segmentacion.webp"
+                alt="Diagrama de segmentación de clientes"
+                />
+            </div>
+
+            <div class="work-img">
+                <img
+                src="/assets/usabilidad.webp"
+                alt="Esquema de prueba de usabilidad con métricas"
+                />
+            </div>
+
+            <div class="work-img">
+                <img
+                src="/assets/login-Industrializa.webp"
+                alt="Diseño de interfaz de login para una aplicación"
+                />
+            </div>
+
+            <div class="work-img">
+                <img
+                src="/assets/mapa-De-Empatia.webp"
+                alt="Mapa de empatía con notas adhesivas"
+                />
+            </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <h2 class="section-title" data-lang="contactTitle">Contacto</h2>
+            <div class="contact-text bd-grid" data-lang="contactText">
+                <p>
+                Si deseas contactarme, puedes hacerlo a través del siguiente formulario
+                o enviándome un correo a
+                </p>
+            </div>
+            <div class="contact-email">
+            <a
+                href="mailto:rodolfodelgadosantiag@gmail.com"
+                aria-label="Enviar un correo a Rodolfo Delgado Santiago"
+            >rodolfodelgadosantiag@gmail.com</a>
+            </div>
+            <br>
+            <div class="contact-container bd-grid">
+            <form
+                action="https://formsubmit.co/rodolfodelgadosantiag@gmail.com"
+                method="POST"
+                class="contact-form"
+                aria-label="Formulario de contacto"
+            >
+                <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                class="contact-input"
+                required
+                aria-label="Tu nombre"
+                />
+                <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="contact-input"
+                required
+                aria-label="Tu dirección de correo electrónico"
+                />
+                <textarea
+                name="message"
+                rows="10"
+                placeholder="Your message"
+                class="contact-input"
+                required
+                aria-label="Tu mensaje"
+                ></textarea>
+
+                <input type="hidden" name="_captcha" value="false" />
+                <input
+                type="hidden"
+                name="_next"
+                value="https://malkabian.github.io/PortafolioRodolfo/"
+                />
+                <input type="submit" value="Send" class="contact-button button" />
+            </form>
+            </div>
+            
+        </section>
+
+        
+        <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalCaption" aria-hidden="true">
+            <span class="close" role="button" aria-label="Cerrar modal">&times;</span>
+            <div class="modal-content-wrapper">
+            <img class="modal-content" id="modalImg" alt="Imagen ampliada de proyecto" />
+            <p id="caption" aria-live="polite"></p>
+            </div>
+        </div>
+
+        </main>
+
+        <footer class="footer">
+        <p class="footer-title">Rodolfo</p>
+        <div class="footer-social" role="group" aria-label="Enlaces a redes sociales en el pie de página">
+            <a
+            href="https://www.linkedin.com/in/rodolfo-delgado-592a22266/"
+            class="footer-icon"
+            aria-label="Enlace a mi perfil de LinkedIn"
+            ><i class="bx bxl-linkedin"></i></a>
+            <a href="https://www.instagram.com/rodolfodelgados/" class="footer-icon"
+            aria-label="Enlace a mi perfil de Instagram"
+            ><i class="bx bxl-instagram"></i></a>
+        </div>
+
+        <p data-lang="footerCopyright">&#169; 2025 Copyright Todos los derechos reservados</p>
+        </footer>
+
+        <script src="scrollreveal.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
