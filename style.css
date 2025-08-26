@@ -185,6 +185,13 @@
     color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
+    background: none; 
+    border: none;     
+    padding: 0.25rem; 
+    outline: none;    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
     }
 
     .active::after {
@@ -379,6 +386,11 @@
     border-radius: 0.5rem;
     overflow: hidden;
     }
+    .work-link {
+        color: var(--first-color);
+        text-decoration: none;
+        font-weight: var(--font-semi);
+    }
     body.dark-mode .work-img {
     box-shadow: 0 4px 25px rgba(255, 255, 255, 0.15);
     }
@@ -479,6 +491,7 @@
     }
     body.dark-mode .contact-email a {
         color:#fff;
+        text-decoration: underline;
     }
     body.dark-mode .contact-input {
     border: 1px solid #fff;
