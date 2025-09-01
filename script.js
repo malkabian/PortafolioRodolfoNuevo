@@ -36,7 +36,6 @@ const sr = ScrollReveal({
 });
 
 sr.reveal(".home-title", {});
-sr.reveal(".button", { delay: 200 });
 sr.reveal(".home-img", { delay: 400 });
 sr.reveal(".home-social", { delay: 400 });
 
